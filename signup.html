@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote | Sign up</title>
+    <meta name="description" content="Quote of the Day">
+    <meta name="keywords"
+        content="Quote of the Day, Be yourself; everyone else is already taken., I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst">
+    <link rel="shortcut icon" href="./quote-left-solid.svg" type="image/x-icon">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./fontaweasom/css/all.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <main class="background-Edite vh-100 d-flex flex-column bg-black justify-content-center">
+        <div class="text-center tittle pb-5">
+            <h1>Welcome To Quote</h1>
+            <p>Sign Up and get the cosmic message awaiting you </p>
+        </div>
+        <div class="container">
+            <div class="form-container bg-opacity-25 rounded-3 offset-md-2 col-md-8 bg-body-secondary p-5">
+                <div class="inpts-container">
+                    <input type="text" class="w-100 mb-4 form-control bg-white bg-opacity-10 text-white" id="nameUs"
+                        placeholder="Enter Your Name" required />
+                    <input type="email" class="w-100 mb-4 form-control bg-white bg-opacity-10 text-white" id="emailIn"
+                        placeholder="Enter Your Email" required />
+                    <div class="for-toggle-eye position-relative">
+                        <input type="password" class="w-100 mb-4 form-control  bg-white bg-opacity-10 text-white"
+                            id="passIn" placeholder="Enter Your Password" required />
+                        <i class="fa-solid fa-eye eye-toggle position-absolute" id="toggle-pass"></i>
+                    </div>
+                    <div class="for-toggle-eye position-relative">
+                        <input type="password" class="w-100 mb-4 form-control bg-white bg-opacity-10 text-white"
+                            id="confirmpass" placeholder="Confirm Your Password" required />
+                        <i class="fa-solid fa-eye eye-toggle position-absolute" id="toggle-conpass"></i>
+                    </div>
+                    <button type="submit" class="btn btn-outline-info w-100" id="submitBtn">Sign up</button>
+                </div>
+                <div class="message mt-2">
+                    <p class="text-danger of-name text-center m-0"></p>
+                </div>
+                <div class="message mt-2">
+                    <div class="text-dark text-end m-0">
+                        <span>Already Have Account?</span>
+                        <a href="./login.html" class="text-info">Log In</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
