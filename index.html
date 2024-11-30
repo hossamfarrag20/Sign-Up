@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quote of the Day</title>
+    <title>Quote | Log In</title>
     <meta name="description" content="Quote of the Day">
     <meta name="keywords"
         content="Quote of the Day, Be yourself; everyone else is already taken., I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst">
@@ -15,130 +15,35 @@
 </head>
 
 <body>
-    <div id="error" class="">
-        <!-- <h2>
-            <span>Welcome</span>
-            <span id="myusername" class="text-uppercase"></span>
-        </h2> -->
-        <!-- <button type="submit" class="btn btn-outline-info w-25" ></button> -->
-
-        <header class="background-Edite position-relative z-2 overflow-hidden ">
-            <nav class="px-1 pb-3  pt-4 position-relative top-0 start-0 end-0 z-2 px-5">
-                <div class="nav-cont-big px-3 d-flex justify-content-between align-items-center">
-                    <div class="nav-left d-flex align-items-center">
-                        <div class="bars-container d-flex align-items-center justify-content-center">
-                            <i class="fa fa-bars"></i>
-                        </div>
-                        <p class="text-uppercase ms-3 mb-0 mt-0 my-button2 text-white" id="logoutBtn">Log out</p>
+    <main class="background-Edite vh-100 d-flex flex-column bg-black justify-content-center">
+        <div class="text-center tittle pb-5">
+            <h1>Welcome To Quote</h1>
+            <p>Log in and get the cosmic message awaiting you </p>
+        </div>
+        <div class="container">
+            <div class="form-container bg-opacity-25 rounded-3 offset-md-2 col-md-8 bg-body-secondary py-5 px-4">
+                <div class="inpts-container">
+                    <input type="email" class="w-100 mb-4 form-control bg-white bg-opacity-10 text-white" id="emailIn"
+                        placeholder="Enter Your Email" required />
+                    <div class="for-toggle-eye position-relative">
+                        <input type="password" class="w-100 mb-4 form-control  bg-white bg-opacity-10 text-white"
+                            id="passIn" placeholder="Enter Your Password" required />
+                        <i class="fa-solid fa-eye eye-toggle position-absolute" id="toggle-pass"></i>
                     </div>
-                    <div class="nav-right">
-                        <h1>Quote.</h1>
-                    </div>
+                    <button type="submit" class="btn btn-outline-info w-100" id="submitBtn">Log in</button>
                 </div>
-            </nav>
-            <div class="layer"></div>
-            <div class="items-continer  d-flex align-items-center justify-content-center">
-                <div class="container-fluid container position-relative z-2">
-                    <div class="row">
-                        <aside
-                            class="date-tme d-flex flex-column justify-content-center col-lg-4 col-10 offset-1 offset-lg-0 mb-5">
-                            <div class="date-des">
-                                <h2>Date and Time</h2>
-                            </div>
-                            <div
-                                class="date-cont d-flex ms-5 ms-lg-0 justify-content-center flex-column align-items-sm-center">
-                                <div class="day">
-                                    <span class="day-count">00</span>
-                                    <span class="months">May</span>
-                                </div>
-                                <div class="time d-flex ps-1">
-                                    <div class="houre  gettime me-2">
-                                        <p>00</p>
-                                    </div>
-                                    <div class="minuts gettime me-2">
-                                        <p>00</p>
-                                    </div>
-                                    <div class="seconds gettime">
-                                        <p>00</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </aside>
-                        <main class="main-container  col-lg-7 ps-lg-4 col-10 offset-1 offset-lg-0">
-                            <div class="main-tittle date-des">
-                                <h2>Welcome <span id="myusername" class="text-uppercase"></span></h2>
-                            </div>
-                            <div class="intro pe-lg-4">
-                                <article>Welcome to InspireMe! We're thrilled to have you here. Our website is designed
-                                    to
-                                    bring a
-                                    little bit of inspiration and encouragement into your daily life. Whenever you need
-                                    a
-                                    boost
-                                    or some wise advice, just tap the button on our homepage.
-                                </article>
-                                <div class="main-des d-flex align-items-center flex-wrap">
-                                    <article class="w-100">Tap the button now to see the cosmic message awaiting you.
-                                    </article>
-                                    <button class="btn btn-outline-light mt-4 my-button" onclick="getQuote()">Get Your
-                                        Quote</button>
-                                </div>
-                                <div class="quests-container py-4 d-flex flex-column gap-3" style="height: 160px;">
-                                    <div id="quoteHere"></div>
-                                    <div id="quoteHere2"></div>
-                                </div>
-                            </div>
-                        </main>
-                        <aside class="social pt-5 col-lg-1">
-                            <div class="big-conta d-flex justify-content-center flex-lg-column ms-xxl-5 ps-lg-5">
-                                <div class="social-cont d-flex flex-column align-items-center ms-xxl-5">
-                                    <ul
-                                        class="list-unstyled d-flex flex-lg-column align-items-end justify-content-between">
-                                        <li
-                                            class="mb-3 ms-2 d-flex justify-content-center align-items-center rounded-circle">
-                                            <a class="text-white" target="_blank"
-                                                href="https://www.facebook.com/hossammagdy21"><i
-                                                    class="fa-brands fa-facebook-f"></i></a>
-                                        </li>
-                                        <li
-                                            class="mb-3 ms-2 d-flex justify-content-center align-items-center rounded-circle">
-                                            <a class="text-white" target="_blank" href="https://x.com/FiGoOo20"><i
-                                                    class="fa-brands fa-twitter"></i></a>
-                                        </li>
-                                        <li
-                                            class="mb-3 ms-2 d-flex justify-content-center align-items-center rounded-circle">
-                                            <a class="text-white" target="_blank"
-                                                href="https://www.linkedin.com/in/hosamfarrag/"><i
-                                                    class="fa-brands fa-linkedin"></i></a>
-                                        </li>
-                                        <li
-                                            class="mb-3 ms-2 d-flex justify-content-center align-items-center rounded-circl">
-                                            <a class="text-white" target="_blank"
-                                                href="https://www.instagram.com/hossamfarrag_21/"><i
-                                                    class="fa-brands fa-instagram"></i></a>
-                                        </li>
-                                        <li
-                                            class="mb-3 ms-2 d-flex justify-content-center align-items-center rounded-circle">
-                                            <a class="text-white" target="_blank"
-                                                href="https://github.com/hossamfarrag20"><i
-                                                    class="fa-brands fa-github"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </aside>
-                        <footer class="pt-4 z-2">
-                            <p class="text-white text-center">Copyright Route 2024 | Design by <span>Hossam
-                                    Farrag</span>
-                            </p>
-                        </footer>
+                <div class="message mt-2">
+                    <p class="text-danger of-name-login text-center m-0"></p>
+                </div>
+                <div class="message mt-2">
+                    <div class="text-dark text-end m-0">
+                        <span>Don't have an Account?</span>
+                        <a href="./signup.html" class="text-info">Sign Up</a>
                     </div>
                 </div>
             </div>
-        </header>
-
-    </div>
-
+        </div>
+    </main>
     <script src="./js/bootstrap.bundle.min.js"></script>
     <script src="./js/main.js"></script>
 </body>

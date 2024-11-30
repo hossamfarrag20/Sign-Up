@@ -46,7 +46,7 @@ function getValues() {
                     localStorage.setItem('arrEmails', JSON.stringify(arrEmails));
                     ofName.style.display = "none";
                     clearsignup();
-                    location.href = ("http://127.0.0.1:5500/login.html");
+                    location.href = ("http://127.0.0.1:5500/index.html");
                 } else if (excite(arrEmails, personalValues.email)) {
                     ofName.innerHTML = `Email Already Excite`;
                     emailIn.classList.add('is-invalid');
@@ -124,7 +124,7 @@ if (location.href === ("http://127.0.0.1:5500/signup.html")) {
 
     });
 }
-else if (location.href === ("http://127.0.0.1:5500/login.html")) {
+else if (location.href === ("http://127.0.0.1:5500/index.html")) {
     togglePass.addEventListener('click', function () {
         if (passIn.type == 'password') {
             passIn.type = 'text';
@@ -139,20 +139,20 @@ else if (location.href === ("http://127.0.0.1:5500/login.html")) {
         getLogin();
     });
 }
-else if (location.href === ("http://127.0.0.1:5500/index.html")) {
+else if (location.href === ("http://127.0.0.1:5500/home.html")) {
     getDate();
     setInterval(getDate, 1000);
     logoutBtn.addEventListener('click', function () {
         localStorage.removeItem('isLoggedIn');
         localStorage.removeItem('currentUserEmail');
         errorPage.classList.add('d-none');
-        location.assign("http://127.0.0.1:5500/login.html");
-        location.replace = "http://127.0.0.1:5500/login.html";
+        location.assign("http://127.0.0.1:5500/index.html");
+        location.replace = "http://127.0.0.1:5500/index.html";
 
     });
 
     if (localStorage.getItem('isLoggedIn') != 'true') {
-        location.href = "http://127.0.0.1:5500/login.html";
+        location.href = "http://127.0.0.1:5500/index.html";
     } else {
         getUserName();
     }
@@ -168,7 +168,7 @@ function getLogin() {
         if (emailPassMatch(arrEmails, personalValues.pass, personalValues.email)) {
             localStorage.setItem('isLoggedIn', 'true');
             localStorage.setItem('emailid', personalValues.email);
-            location.href = ("http://127.0.0.1:5500/index.html");
+            location.href = ("http://127.0.0.1:5500/home.html");
             clearLogIn();
             errorPage.classList.remove('d-none');
             errorPage.classList.add('d-block');
