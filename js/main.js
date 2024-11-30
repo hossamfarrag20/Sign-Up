@@ -11,6 +11,8 @@ var errorPage = document.getElementById('error');
 var togglePass = document.getElementById('toggle-pass');
 var toggleConPass = document.getElementById('toggle-conpass');
 var inputs = [nameUs, emailIn, passIn, confirmPass];
+var inputslog = [emailIn, passIn];
+
 var myRegex = /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#@$%^&*])/;
 var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -40,6 +42,7 @@ function getValues() {
         email: emailIn.value,
         pass: passIn.value,
         confPass: confirmPass.value
+
     };
     if (nameUs.value.trim() != "" && emailIn.value.trim() != "" && passIn.value.trim() != '' && confirmPass.value.trim() != "" && nameUs.value.length > 3 && passIn.value.length >= 8) {
         if (myRegex.test(passIn.value)) {
@@ -76,6 +79,7 @@ function getValues() {
             confirmPass.classList.add('is-invalid');
         }
     } else {
+        ofName.classList.remove('d-none');
         ofName.innerHTML = `You should not leave any Empty Input`;
         for (var i = 0; i < inputs.length; i++) {
             if (inputs[i].value == "") {
@@ -112,7 +116,6 @@ if (location.href === (linkView + "signup.html")) {
 
     submitBtn.addEventListener('click', function () {
         getValues();
-        console.log(arrEmails);
     });
     togglePass.addEventListener('click', function () {
         if (passIn.type == 'password') {
@@ -177,28 +180,40 @@ function getLogin() {
         email: emailIn.value,
         pass: passIn.value
     };
-    if (excite(arrEmails, personalValues.email)) {
-        if (emailPassMatch(arrEmails, personalValues.pass, personalValues.email)) {
-            localStorage.setItem('isLoggedIn', 'true');
-            localStorage.setItem('emailid', personalValues.email);
-            location.href = (linkView + "home.html");
-            clearLogIn();
-            errorPage.classList.remove('d-none');
-            errorPage.classList.add('d-block');
-        } else {
-            if (ofNameLogin.classList.contains('d-none')) {
-                ofNameLogin.classList.remove('d-none');
-                ofNameLogin.innerHTML = `Wrong Password! Please Try Again`;
-
+    if(emailIn.value.trim() != "" && passIn.value.trim() != ''){
+        if (excite(arrEmails, personalValues.email)) {
+            if (emailPassMatch(arrEmails, personalValues.pass, personalValues.email)) {
+                localStorage.setItem('isLoggedIn', 'true');
+                localStorage.setItem('emailid', personalValues.email);
+                location.href = (linkView + "home.html");
+                clearLogIn();
+                errorPage.classList.remove('d-none');
+                errorPage.classList.add('d-block');
             } else {
-
-                ofNameLogin.innerHTML = `Wrong Password! Please Try Again`;
+                if (ofNameLogin.classList.contains('d-none')) {
+                    ofNameLogin.classList.remove('d-none');
+                    ofNameLogin.innerHTML = `Wrong Password! Please Try Again`;
+    
+                } else {
+    
+                    ofNameLogin.innerHTML = `Wrong Password! Please Try Again`;
+                }
+            }
+        } else {
+            ofNameLogin.classList.remove('d-none');
+            ofNameLogin.innerHTML = `Email Dose Not Excite, Please SignUp`;
+        }
+    }
+    else {
+        ofNameLogin.classList.remove('d-none');
+        ofNameLogin.innerHTML = `You should not leave any Empty Input`;
+        for (var i = 0; i < inputslog.length; i++) {
+            if (inputslog[i].value == "") {
+                inputslog[i].classList.add('is-invalid');
             }
         }
-    } else {
-        ofName.classList.remove('d-none');
-        ofNameLogin.innerHTML = `Email Dose Not Excite, Please SignUp`;
     }
+
 };
 
 function getUserName() {
