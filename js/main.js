@@ -13,6 +13,9 @@ var toggleConPass = document.getElementById('toggle-conpass');
 var inputs = [nameUs, emailIn, passIn, confirmPass];
 var myRegex = /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#@$%^&*])/;
 var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+// var linkView = "http://127.0.0.1:5500/";
+var linkView = "https://hossamfarrag20.github.io/Sign-Up/";
 var arrEmails = JSON.parse(localStorage.getItem('arrEmails')) || [];
 
 
@@ -44,17 +47,22 @@ function getValues() {
                 if (!excite(arrEmails, personalValues.email) && confirmPass.value == passIn.value) {
                     arrEmails.push(personalValues);
                     localStorage.setItem('arrEmails', JSON.stringify(arrEmails));
-                    ofName.style.display = "none";
+                    if (ofName.classList.contains('d-block')) {
+                        ofName.classList.remove('d-block');
+                    };
                     clearsignup();
-                    location.href = ("https://hossamfarrag20.github.io/Sign-Up/index.html");
+                    location.href = (linkView + "index.html");
                 } else if (excite(arrEmails, personalValues.email)) {
+                    ofName.classList.remove('d-none');
                     ofName.innerHTML = `Email Already Excite`;
                     emailIn.classList.add('is-invalid');
                 }
             } else {
+                ofName.classList.remove('d-none');
                 ofName.innerHTML = `Email is not valid`;
             }
             if (confirmPass.value != passIn.value) {
+                ofName.classList.remove('d-none');
                 ofName.innerHTML = `Password Dose not match`;
                 confirmPass.classList.add('is-invalid');
             }
@@ -62,6 +70,7 @@ function getValues() {
                 nameUs.classList.add('is-invalid');
             }
         } else {
+            ofName.classList.remove('d-none');
             ofName.innerHTML = `The Password Must Include at least one Small and Captal Letter, and one of these [#@$%^&*] at least`
             passIn.classList.add('is-invalid');
             confirmPass.classList.add('is-invalid');
@@ -82,6 +91,8 @@ function clearsignup() {
     passIn.value = "";
     nameUs.value = "";
     confirmPass.value = "";
+    ofName.classList.add('d-none');
+
     for (var i = 0; i < inputs.length; i++) {
         if (inputs[i].classList.contains('is-invalid')) {
             inputs[i].classList.remove('is-invalid');
@@ -92,10 +103,12 @@ function clearsignup() {
 function clearLogIn() {
     emailIn.value = "";
     passIn.value = "";
+    ofName.classList.add('d-none');
+
 }
 
 // ==============the main action================
-if (location.href === ("https://hossamfarrag20.github.io/Sign-Up/signup.html")) {
+if (location.href === (linkView + "signup.html")) {
 
     submitBtn.addEventListener('click', function () {
         getValues();
@@ -124,7 +137,7 @@ if (location.href === ("https://hossamfarrag20.github.io/Sign-Up/signup.html")) 
 
     });
 }
-else if (location.href === ("https://hossamfarrag20.github.io/Sign-Up/index.html")) {
+else if (location.href === (linkView + "index.html")) {
     togglePass.addEventListener('click', function () {
         if (passIn.type == 'password') {
             passIn.type = 'text';
@@ -139,20 +152,20 @@ else if (location.href === ("https://hossamfarrag20.github.io/Sign-Up/index.html
         getLogin();
     });
 }
-else if (location.href === ("https://hossamfarrag20.github.io/Sign-Up/home.html")) {
+else if (location.href === (linkView + "home.html")) {
     getDate();
     setInterval(getDate, 1000);
     logoutBtn.addEventListener('click', function () {
         localStorage.removeItem('isLoggedIn');
         localStorage.removeItem('currentUserEmail');
         errorPage.classList.add('d-none');
-        location.assign("https://hossamfarrag20.github.io/Sign-Up/index.html");
-        location.replace = "https://hossamfarrag20.github.io/Sign-Up/index.html";
+        location.assign(linkView + "index.html");
+        location.replace = linkView + "index.html";
 
     });
 
     if (localStorage.getItem('isLoggedIn') != 'true') {
-        location.href = "https://hossamfarrag20.github.io/Sign-Up/index.html";
+        location.href = linkView + "index.html";
     } else {
         getUserName();
     }
@@ -168,14 +181,22 @@ function getLogin() {
         if (emailPassMatch(arrEmails, personalValues.pass, personalValues.email)) {
             localStorage.setItem('isLoggedIn', 'true');
             localStorage.setItem('emailid', personalValues.email);
-            location.href = ("https://hossamfarrag20.github.io/Sign-Up/home.html");
+            location.href = (linkView + "home.html");
             clearLogIn();
             errorPage.classList.remove('d-none');
             errorPage.classList.add('d-block');
         } else {
-            ofNameLogin.innerHTML = `Wrong Password! Please Retype it`;
+            if (ofNameLogin.classList.contains('d-none')) {
+                ofNameLogin.classList.remove('d-none');
+                ofNameLogin.innerHTML = `Wrong Password! Please Try Again`;
+
+            } else {
+
+                ofNameLogin.innerHTML = `Wrong Password! Please Try Again`;
+            }
         }
     } else {
+        ofName.classList.remove('d-none');
         ofNameLogin.innerHTML = `Email Dose Not Excite, Please SignUp`;
     }
 };

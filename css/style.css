@@ -8,8 +8,11 @@
   --p-color: rgba(255, 255, 255, 0.3);
 }
 .message {
-  height: 30px;
+  height: 40px;
 }
+/* .message-warn{
+  background-color: rgba(236, 0, 142, 0.252);
+} */
 .tittle h1 {
   font-family: var(--main-font);
   font-size: 32px;
@@ -252,3 +255,8 @@ input::placeholder {
   -o-transform: translateY(-320%);
   cursor: pointer;
 }
+/* .of-name{
+  font-family: var(--main-font);
+  font-weight: 400;
+  font-size: 18px;
+} */
