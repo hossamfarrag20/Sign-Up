@@ -255,8 +255,28 @@ input::placeholder {
   -o-transform: translateY(-320%);
   cursor: pointer;
 }
-/* .of-name{
-  font-family: var(--main-font);
-  font-weight: 400;
-  font-size: 18px;
+/* .spinner {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(212, 32, 225, 0.489);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.spinner-containt {
+  width: 360px;
+  height: 330px;
+  background-color: white;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.spinner-message i{
+  font-size: 60px;
 } */
