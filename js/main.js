@@ -139,7 +139,7 @@ else if (location.href === ("http://127.0.0.1:5500/login.html")) {
         getLogin();
     });
 }
-else if (location.href === ("http://127.0.0.1:5500/home.html")) {
+else if (location.href === ("http://127.0.0.1:5500/index.html")) {
     getDate();
     setInterval(getDate, 1000);
     logoutBtn.addEventListener('click', function () {
@@ -168,7 +168,7 @@ function getLogin() {
         if (emailPassMatch(arrEmails, personalValues.pass, personalValues.email)) {
             localStorage.setItem('isLoggedIn', 'true');
             localStorage.setItem('emailid', personalValues.email);
-            location.href = ("http://127.0.0.1:5500/home.html");
+            location.href = ("http://127.0.0.1:5500/index.html");
             clearLogIn();
             errorPage.classList.remove('d-none');
             errorPage.classList.add('d-block');
